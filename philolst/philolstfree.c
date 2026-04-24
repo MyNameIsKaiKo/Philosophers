@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_philo.c                                     :+:      :+:    :+:   */
+/*   philolstfree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 12:20:29 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 19:09:05 by jleray           ###   ########.fr       */
+/*   Created: 2026/04/24 17:42:33 by jleray            #+#    #+#             */
+/*   Updated: 2026/04/24 17:44:03 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	parser_philo(char **av, int ac, t_data **data)
+void	philolst_free(t_philos **philo)
 {
-	int		i;
-	int		j;
-	size_t	len;
-	t_data	*tmp;
+	t_philos	*tmp;
 
-	i = 1;
-	j = 0;
-	tmp = *data;
-	while (i < ac)
+	tmp = *philo;
+	if (!tmp)
 	{
-		len = ft_strlen(av[i]);
-		while (j < (int)len)
-		{
-			if ((av[i][j] >= 1 && av[i][j] <= 9))
-			{
-				printf("Philo : Non valid characters.\n");
-				return ;
-			}
-			j++;
-		}
-		i++;
+		philo = NULL;
+		return ;
 	}
-	tmp = datalst_new(av, ac);
+	if (tmp->data)
+	{
+		free(tmp->data);
+		tmp->data = NULL;
+	}
+	free(tmp);
+	philo = NULL;
 }

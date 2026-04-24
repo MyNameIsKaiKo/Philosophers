@@ -5,13 +5,16 @@ RM			= rm -f
 
 OBJ_DIR		= obj
 
-VPATH		= parser:tools:philolst 
+VPATH		= parser:tools:philolst:datalst 
 
 SRCS 		=	main.c \
 				ft_strlen.c \
 				ft_atoi.c \
 				parser_philo.c \
-				philolstnew.c
+				philolstnew.c \
+				philolstfree.c \
+				datalstnew.c
+				
 				
 
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)

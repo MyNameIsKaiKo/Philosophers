@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_philo.c                                     :+:      :+:    :+:   */
+/*   datalestnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 12:20:29 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 19:09:05 by jleray           ###   ########.fr       */
+/*   Created: 2026/04/24 19:06:29 by jleray            #+#    #+#             */
+/*   Updated: 2026/04/24 19:21:44 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	parser_philo(char **av, int ac, t_data **data)
+t_data	*datalst_new(char **av, int ac)
 {
-	int		i;
-	int		j;
-	size_t	len;
-	t_data	*tmp;
+	t_data	*newdata;
 
-	i = 1;
-	j = 0;
-	tmp = *data;
-	while (i < ac)
-	{
-		len = ft_strlen(av[i]);
-		while (j < (int)len)
-		{
-			if ((av[i][j] >= 1 && av[i][j] <= 9))
-			{
-				printf("Philo : Non valid characters.\n");
-				return ;
-			}
-			j++;
-		}
-		i++;
-	}
-	tmp = datalst_new(av, ac);
+	newdata = malloc(sizeof(t_data));
+	if (!newdata)
+		return (NULL);
+	newdata->philo_count = ft_atoi(av[1]);
+	newdata->tt_death = ft_atoi(av[2]);
+	newdata->tt_eat = ft_atoi(av[3]);
+	newdata->tt_tts = ft_atoi(av[4]);
+	if (ac == 6)
+		newdata->max_eat = ft_atoi(av[5]);
+	return (newdata);
 }

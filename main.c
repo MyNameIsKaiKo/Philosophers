@@ -6,7 +6,7 @@
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:15 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 17:07:13 by jleray           ###   ########.fr       */
+/*   Updated: 2026/04/24 19:19:08 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	t_philo	*philo;
+	t_data	*data;
 
-	if (ac < 4 || ac > 5)
+	if (ac < 5 || ac > 6)
 	{
 		printf("Philo : wrong number of arguments\n");
 		return (1);
 	}
-	parser_philo(av, ac, &philo);
+	parser_philo(av, ac, &data);
+	if (!data)
+		return (1);
 	return (0);
 }
