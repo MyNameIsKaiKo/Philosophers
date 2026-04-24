@@ -6,7 +6,7 @@
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:17:18 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 16:37:08 by jleray           ###   ########.fr       */
+/*   Updated: 2026/04/24 17:09:11 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHILO_H
 
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 typedef struct s_data
@@ -38,4 +39,5 @@ size_t				ft_strlen(char *s);
 int					ft_atoi(const char *nptr);
 
 //	--- Struct Related Function ---
+t_philo				*philolst_new(char **av, int ac);
 #endif

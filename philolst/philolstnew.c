@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philolstnew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 12:14:15 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 17:07:13 by jleray           ###   ########.fr       */
+/*   Created: 2026/04/24 17:04:51 by jleray            #+#    #+#             */
+/*   Updated: 2026/04/24 17:09:48 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
-int	main(int ac, char **av)
+t_philo	*philolst_new(char **av, int ac)
 {
-	t_philo	*philo;
+	t_philo	*newphilo;
 
-	if (ac < 4 || ac > 5)
-	{
-		printf("Philo : wrong number of arguments\n");
-		return (1);
-	}
-	parser_philo(av, ac, &philo);
-	return (0);
+	newphilo = malloc(sizeof(t_philo));
+	newphilo->data.philo_count = ft_atoi(av[1]);
+	newphilo->data.philo_count = ft_atoi(av[2]);
+	newphilo->data.philo_count = ft_atoi(av[3]);
+	if (ac == 5)
+		newphilo->data.philo_count = ft_atoi(av[4]);
+	return (newphilo);
 }

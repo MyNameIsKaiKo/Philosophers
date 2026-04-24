@@ -6,7 +6,7 @@
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:20:29 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 16:44:58 by jleray           ###   ########.fr       */
+/*   Updated: 2026/04/24 17:09:23 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,19 @@ void	parser_philo(char **av, int ac, t_philo **philo)
 	i = 1;
 	j = 0;
 	tmp = *philo;
-	while (i <= ac)
+	while (i < ac)
 	{
 		len = ft_strlen(av[i]);
-		while (j <= (int)len)
+		while (j < (int)len)
 		{
-			if (!(av[i][j] >= 1 && av[i][j] <= 9))
+			if ((av[i][j] >= 1 && av[i][j] <= 9))
 			{
 				printf("Philo : Non valid characters.\n");
 				return ;
 			}
+			j++;
 		}
+		i++;
 	}
-	tmp->data.philo_count = ft_atoi(av[1]);
-	tmp->data.philo_count = ft_atoi(av[2]);
-	tmp->data.philo_count = ft_atoi(av[3]);
-	if (ac == 5)
-		tmp->data.philo_count = ft_atoi(av[4]);
+	tmp = philolst_new(av, ac);
 }
