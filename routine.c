@@ -12,8 +12,12 @@
 
 #include "philo.h"
 
-void 	routine_philoso(void *data)
+void	*routine_philoso(void *data)
 {
+	t_to_send	data_s;
 
-	return ;
+	data_s = *(t_to_send *)data;
+	if (data_s.is_alone)
+		return (NULL);
+	return (NULL);
 }
