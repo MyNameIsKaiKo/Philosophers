@@ -29,8 +29,8 @@ typedef struct s_data
 
 typedef struct s_to_send
 {
-	pthread_mutex_t		left_hand;
-	pthread_mutex_t		right_hand;
+	pthread_mutex_t		*left_hand;
+	pthread_mutex_t		*right_hand;
 	pthread_mutex_t		fork;
 	struct s_data		*data;
 }						t_to_send;
