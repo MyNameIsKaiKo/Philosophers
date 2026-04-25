@@ -12,19 +12,6 @@
 
 #include "../philo.h"
 
-void	init_philosophers(t_philos **philos)
-{
-	t_philos	*tmp;
-	int			i;
-
-	tmp = *philos;
-	i = 0;
-	while (i < tmp->data->philo_count)
-	{
-		tmp->next = philolst_new(tmp->data);
-	}
-}
-
 t_philos	*philolst_new(t_data *data)
 {
 	t_philos	*newphilo;
@@ -32,6 +19,6 @@ t_philos	*philolst_new(t_data *data)
 	newphilo = malloc(sizeof(t_philos));
 	if (!newphilo)
 		return (NULL);
-	newphilo->data = data;
+	newphilo->to_send.data = data;
 	return (newphilo);
 }

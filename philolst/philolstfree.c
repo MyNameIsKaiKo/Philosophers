@@ -22,11 +22,7 @@ void	philolst_free(t_philos **philo)
 		philo = NULL;
 		return ;
 	}
-	if (tmp->data)
-	{
-		free(tmp->data);
-		tmp->data = NULL;
-	}
+	printf("TODO FREE TO SEND FUNCTION");
 	free(tmp);
 	philo = NULL;
 }
