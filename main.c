@@ -14,7 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_data	*data;
+	t_data		*data;
+	t_philos	*philos;
 
 	if (ac < 5 || ac > 6)
 	{
@@ -24,5 +25,11 @@ int	main(int ac, char **av)
 	parser_philo(av, ac, &data);
 	if (!data)
 		return (1);
+	philos = philolst_new(data);
+	if (!philos)
+	{
+		free(data);
+		return (1);
+	}
 	return (0);
 }

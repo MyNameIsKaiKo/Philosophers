@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philolstfree.c                                     :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 17:42:33 by jleray            #+#    #+#             */
-/*   Updated: 2026/04/24 17:44:03 by jleray           ###   ########.fr       */
+/*   Created: 2026/04/25 10:22:13 by jleray            #+#    #+#             */
+/*   Updated: 2026/04/25 10:22:13 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
-void	philolst_free(t_philos **philo)
+void 	routine_philoso(void *data)
 {
-	t_philos	*tmp;
 
-	if (!(*philo))
-	{
-		philo = NULL;
-		return ;
-	}
-	printf("TODO FREE TO SEND FUNCTION");
-	free((*philo)->to_send.data);
-	while ((*philo)->next)
-	{
-		tmp = (*philo);
-		(*philo) = (*philo)->next;
-		free(tmp);
-	}
-	free(*philo);
-	philo = NULL;
+	return ;
 }

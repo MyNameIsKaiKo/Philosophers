@@ -19,6 +19,11 @@ static void	philolst_distrib_fork(t_philos **newphilo)
 
 	tmp = *newphilo;
 	first = *newphilo;
+	if (!tmp->next)
+	{
+		tmp->to_send.is_alone = 1;
+		return ;
+	}
 	while (tmp->next)
 	{
 		tmp->to_send.left_hand = &tmp->to_send.fork;
@@ -49,10 +54,12 @@ static void	philolst_init(t_philos **newphilo)
 	int			i;
 	t_philos	*tmp;
 
-	i = 0;
+	i = 1;
 	tmp = *newphilo;
-	while (i < tmp->to_send.data->philo_count)
+	while (i <= tmp->to_send.data->philo_count)
 	{
+		if (i % 2)
+			tmp->to_send.is_odd = 1;
 		tmp->next = philolst_new(tmp->to_send.data);
 		i++;
 		tmp = tmp->next;
@@ -69,6 +76,8 @@ t_philos	*philolst_new(t_data *data)
 		return (NULL);
 	newphilo->next = NULL;
 	newphilo->to_send.data = data;
+	newphilo->to_send.is_alone = 0;
+	newphilo->to_send.is_odd = 1;
 	philolst_init(&newphilo);
 	philolst_fork_init(&newphilo);
 	philolst_distrib_fork(&newphilo);

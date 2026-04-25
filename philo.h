@@ -33,6 +33,8 @@ typedef struct s_to_send
 	pthread_mutex_t		*right_hand;
 	pthread_mutex_t		fork;
 	struct s_data		*data;
+	int					is_odd;
+	int					is_alone;
 }						t_to_send;
 
 typedef struct s_philos
